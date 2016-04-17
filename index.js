@@ -48,11 +48,9 @@ app.post('/webhook/', function (req, res) {
 						console.error(err);
 						return;
 					}
-
-					console.log(res.code, res.headers, res.buffer.toString());
+					sendTextMessage(sender, "The current exchange rate for 1 XBTC is $" + res.buffer.toString())
+					console.log(res.code, res.headers, res.data["USD"].toString());
 				});
-				//console.log(JSON.stringify(data))
-				sendTextMessage(sender, "The current exchange rate for 1 XBTC is $")
 				continue
 			}
 
