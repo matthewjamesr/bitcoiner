@@ -35,7 +35,7 @@ app.post('/webhook/', function (req, res) {
 
 			// Listen for key words.
 
-			if (findWord('Generic', text) = true ) {
+			if (findWord('Generic', text) == true ) {
 				sendGenericMessage(sender)
 				continue
 			}
