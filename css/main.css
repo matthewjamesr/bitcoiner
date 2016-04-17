@@ -64,8 +64,9 @@ a {
   margin: 1.5em auto; }
 
 .fb-send-to-messenger {
+  width: 400px;
+  height: 400px;
   margin: 0 auto;
-  margin-right: -101px;
   margin-top: 100px;
   text-align: center; }
 
