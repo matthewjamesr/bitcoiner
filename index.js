@@ -2,9 +2,8 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var request = require('request')
 var app = express()
-var blockchain = require('blockchain.info');
-
-var exchange = require('blockchain.info/exchange');
+var blockchain = require('blockchain.info')
+var http = require('http-request')
 
 app.set('port', (process.env.PORT || 5000))
 
