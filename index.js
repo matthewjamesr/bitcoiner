@@ -49,7 +49,7 @@ app.post('/webhook/', function (req, res) {
 						return;
 					}
 					sendTextMessage(sender, "The current exchange rate for 1 XBTC is $" + res.buffer.toString())
-					console.log(res.code, res.headers, res.data["USD"].toString());
+					console.log(res.code, res.headers, res.buffer["USD"].toString());
 				});
 				continue
 			}
