@@ -2,6 +2,9 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var request = require('request')
 var app = express()
+var blockchain = require('blockchain.info');
+
+var exchange = require('blockchain.info/exchange');
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -39,6 +42,11 @@ app.post('/webhook/', function (req, res) {
 				sendGenericMessage(sender)
 				continue
 			}
+
+			if (findWord('Price', text) == true || findWord('Rate', text) == true && findWord('Current', text) == true) {
+				sendTextMessage(sender, "The current exchange rate for 1 XBTC is $" + exchange.getTicker('USD'))
+			}
+
 			sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 		}
 		if (event.postback) {
