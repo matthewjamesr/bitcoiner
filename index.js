@@ -43,15 +43,12 @@ app.post('/webhook/', function (req, res) {
 			}
 
 			if (findWord('Price', text) == true || findWord('Rate', text) == true && findWord('Current', text) == true) {
-				http.get('https://blockchain.info/ticker', function (err, res) {
-					if (err) {
-						console.error(err);
-						return;
-					}
-					this.data = res["USD"]
-					sendTextMessage(sender, "The current exchange rate for 1 XBTC is $" + this.data.toString())
-					console.log(res.code, res.headers, res.buffer.toString());
-				});
+				request('https://blockchain.info/ticker', function (error, response, body) {
+				  if (!error && response.statusCode == 200) {
+				    console.log(response.USD.last)
+						sendTextMessage(sender, "The current exchange rate for 1 XBTC is $" + response.USD.last.toString())
+				  }
+				})
 				continue
 			}
 
