@@ -63,11 +63,10 @@ a {
   padding: 0;
   margin: 1.5em auto; }
 
-.fb-send-to-messenger {
+.messenger-code {
   width: 150px;
   height: 150px;
-  margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
