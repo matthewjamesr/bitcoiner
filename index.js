@@ -45,8 +45,8 @@ app.post('/webhook/', function (req, res) {
 			if (findWord('Price', text) == true || findWord('Rate', text) == true && findWord('Current', text) == true) {
 				request('https://blockchain.info/ticker', function (error, response, body) {
 				  if (!error && response.statusCode == 200) {
-				    console.log(response.body.toString())
-						sendTextMessage(sender, "The current exchange rate for 1 XBTC is $" + response.body.toString())
+				    console.log(response.body.USD.toString())
+						sendTextMessage(sender, "The current exchange rate for 1 XBTC is $" + response.body.USD.toString())
 				  }
 				})
 				continue
