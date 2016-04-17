@@ -63,7 +63,9 @@ a {
   margin: 1.5em auto; }
 
 .fb-send-to-messenger {
+  width: 100%;
   margin: 0 auto;
-  margin-top: 100px; }
+  margin-top: 100px;
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
