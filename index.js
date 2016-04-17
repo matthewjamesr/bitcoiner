@@ -49,6 +49,7 @@ app.post('/webhook/', function (req, res) {
 						data = JSON.parse(response.body)
 						sendTextMessage(sender, "The current exchange rate for 1 XBTC is $" + data["USD"]["15m"])
 				  }
+					sendTextMessage(sender, "Sorry, we could not find an updated price for you.")
 				})
 				continue
 			}
