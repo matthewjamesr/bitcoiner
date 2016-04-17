@@ -53,7 +53,7 @@ app.post('/webhook/', function (req, res) {
 var token = "CAAJoGj44QCMBAPoPnJzZBfLiWXpgShOVR0CVN86orScTpXVyG7FDXY6pP3qRR0HGZA6qdavZCBzQG2tcI0Ro1tMgnwgC1ET2dcZBk6sqe57EiYZC1l5cErvp32gXZBL8FQgP2w2fEGnP6ZCybrPo7lXTZCuDrtmCn74ZBJJgfLeGAVVahW9AdB5rIsrjFvzC6nkHGxQbGHZCZCOkwZDZD"
 
 function findWord(word, str) {
-  return RegExp('\\b'+ word +'\\b').test(str)
+  return RegExp('\\b'+ word +'\\b', 'i').test(str)
 }
 
 function sendTextMessage(sender, text) {
