@@ -44,9 +44,9 @@ app.post('/webhook/', function (req, res) {
 			}
 
 			if (findWord('Price', text) == true || findWord('Rate', text) == true && findWord('Current', text) == true) {
-				data = exchange.getTicker["USD"]
-				console.log(data)
-				sendTextMessage(sender, "The current exchange rate for 1 XBTC is $" + data)
+				data = exchange.getTicker
+				console.log(JSON.stringify(data))
+				sendTextMessage(sender, "The current exchange rate for 1 XBTC is $" + JSON.stringify(data))
 				continue
 			}
 
