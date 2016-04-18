@@ -2,6 +2,8 @@
 
 Facebook recently opened up their Messenger platform to enable bots to converse with users through Facebook Apps and on Facebook Pages. I decided to toy around with the API. If you would like to see additional functions, queries, etc., please open a new Issue with your request.
 
+*Bitcoiner can only respond to approved users until approved by Facebook*
+
 You can read the  [documentation](https://developers.facebook.com/docs/messenger-platform/quickstart) here to make your own bot.
 
 ## What I can do
