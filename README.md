@@ -9,15 +9,15 @@ You can read the  [documentation](https://developers.facebook.com/docs/messenger
 
 * Echo recieved text back for testing.
 * Present 15 minute average price of XBTC in USD.
-** Listens for any `String` with `Price`; any `String` with combination of `current` and `rate`
+  * Listens for any `String` with `Price`; any `String` with combination of `current` and `rate`
 
 ## Conversations I would like to have with you soon
 
 * What is the most recent block?
 * How many times has `TXID` been confirmed?
 * What's my current balance?
-** Triggures you to save a XBTC wallet address
-** Optional Statement: Whats the balance of `address`?
+  * Triggures you to save a XBTC wallet address
+  * Optional Statement: Whats the balance of `address`?
 * How has the week been?
 
 *Open a Issue for other functions you would like to see.*
