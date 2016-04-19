@@ -5,6 +5,9 @@ var app = express()
 var blockchain = require('blockchain.info')
 var http = require('http-request')
 
+var verify_token = process.env.verify_token
+var page_token = process.env.page_token
+
 app.set('port', (process.env.PORT || 5000))
 
 // parse application/x-www-form-urlencoded
@@ -20,7 +23,7 @@ app.get('/', function (req, res) {
 
 // for facebook verification
 app.get('/webhook/', function (req, res) {
-	if (req.query['hub.verify_token'] === 'my_voice_is_my_password_verify_me') {
+	if (req.query['hub.verify_token'] === page_token) {
 		res.send(req.query['hub.challenge'])
 	}
 	res.send('Error, wrong token')
@@ -67,8 +70,6 @@ app.post('/webhook/', function (req, res) {
 	res.sendStatus(200)
 })
 
-var token = "CAAJoGj44QCMBAPoPnJzZBfLiWXpgShOVR0CVN86orScTpXVyG7FDXY6pP3qRR0HGZA6qdavZCBzQG2tcI0Ro1tMgnwgC1ET2dcZBk6sqe57EiYZC1l5cErvp32gXZBL8FQgP2w2fEGnP6ZCybrPo7lXTZCuDrtmCn74ZBJJgfLeGAVVahW9AdB5rIsrjFvzC6nkHGxQbGHZCZCOkwZDZD"
-
 function findWord(word, str) {
   return RegExp('\\b'+ word +'\\b', 'i').test(str)
 }
@@ -79,7 +80,7 @@ function sendTextMessage(sender, text) {
 	}
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:token},
+		qs: {access_token:page_token},
 		method: 'POST',
 		json: {
 			recipient: {id:sender},
@@ -128,7 +129,7 @@ function sendGenericMessage(sender) {
 	}
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:token},
+		qs: {access_token:page_token},
 		method: 'POST',
 		json: {
 			recipient: {id:sender},
